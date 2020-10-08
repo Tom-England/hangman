@@ -2,15 +2,16 @@
 #include <stdlib.h>
 #include <time.h>
 #include <stdbool.h>
+#include <ctype.h>
 
-bool inArray(char *arr, char *c){
+bool inArray(const char *arr, const char c){
 	for (int i = 0; i < sizeof(&arr)/sizeof(arr[0]); ++i){
 		if(arr[i] == c) return true;
 	}
 	return false;
 }
 
-int countChar(char *arr, char *c){
+int countChar(const char *arr, const char c){
 	int count = 0;
 	for (int i = 0; i < sizeof(&arr)/sizeof(arr[0]); ++i){
 		if(arr[i] == c) {
