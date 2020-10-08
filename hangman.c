@@ -10,6 +10,16 @@ bool inArray(char *arr, char *c){
 	return false;
 }
 
+int countChar(char *arr, char *c){
+	int count = 0;
+	for (int i = 0; i < sizeof(&arr)/sizeof(arr[0]); ++i){
+		if(arr[i] == c) {
+			count++;
+		}
+	}
+	return count;
+}
+
 int main(){
 	// Seed the random number generator with current time
 	srand(time(0));	
@@ -49,7 +59,7 @@ int main(){
 
 		if (inArray(words[selectedWordIndex], guess)) {
 			printf("Guess is in word \n");
-			correctGuesses++;
+			correctGuesses += countChar(words[selectedWordIndex], guess);
 		} else {
 			lives--;
 		}
