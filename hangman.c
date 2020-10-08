@@ -57,7 +57,15 @@ int main(){
 				printf("%c ", previousGuesses[index]);
 			}
 		}
-		
+		printf("\nWord: ");
+		for(int index = 0; index < sizeof(words[selectedWordIndex])/sizeof(char); ++index){
+			if(inArray(previousGuesses ,words[selectedWordIndex][index])){
+				printf("%c", words[selectedWordIndex][index]);
+			} else {
+				printf("_");
+			}
+		}
+
 		printf("\nEnter Guess: ");
 		guess = getchar();
 		getchar();
