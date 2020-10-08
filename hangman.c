@@ -77,7 +77,7 @@ int main(){
 
 	// Select word to guess
 	int selectedWordIndex = rand() % WORD_COUNT;
-	printf("Selected Word: %s \n", words[selectedWordIndex]);
+	//printf("Selected Word: %s \n", words[selectedWordIndex]);
 	int wordLength = 0;
 	for (int i = 0; i < MAX_STRING_LENGTH; i++){
 		if (isalpha(words[selectedWordIndex][i])){
