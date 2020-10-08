@@ -36,15 +36,24 @@ int main(){
 	}
 
 	// Declare words
-	int wordCount = 2;
-	const char *words[wordCount];
-	words[0] = "test";
-	words[1] = "word";
-	
+	#define WORD_COUNT 3
+	#define MAX_STRING_LENGTH 20
+	const char words[WORD_COUNT][MAX_STRING_LENGTH] = 
+	{"test",
+	 "word",
+	 "microphone"
+	};	
+
 	// Select word to guess
-	int selectedWordIndex = rand() % wordCount;
+	int selectedWordIndex = rand() % WORD_COUNT;
 	printf("Selected Word: %s \n", words[selectedWordIndex]);
-	
+	int wordLength = 0;
+	for (int i = 0; i < MAX_STRING_LENGTH; i++){
+		if (isalpha(words[selectedWordIndex][i])){
+			wordLength++;
+		}
+	}	
+
 	
 	// Main Logic Loop
 	while (lives > 0){
@@ -59,7 +68,7 @@ int main(){
 			}
 		}
 		printf("\nWord: ");
-		for(int index = 0; index < sizeof(words[selectedWordIndex])/sizeof(char); ++index){
+		for(int index = 0; index < wordLength; ++index){
 			if(inArray(previousGuesses ,words[selectedWordIndex][index])){
 				printf("%c", words[selectedWordIndex][index]);
 			} else {
@@ -84,7 +93,7 @@ int main(){
 		} else {
 			lives--;
 		}
-		if (correctGuesses == sizeof(words[selectedWordIndex])/sizeof(char)){
+		if (correctGuesses == wordLength){
 			printf("\n\n\n\nYou Won!\n\n\n\n");
 			break;
 		}
