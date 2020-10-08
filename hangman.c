@@ -53,6 +53,10 @@ int main(){
 		} else {
 			lives--;
 		}
+		if (correctGuesses == sizeof(words[selectedWordIndex])/sizeof(char)){
+			printf("\n\n\n\nYou Won!\n\n\n\n");
+			break;
+		}
 	}
 
 	return 0;
