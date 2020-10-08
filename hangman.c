@@ -51,6 +51,7 @@ int main(){
 		// from triggering the input again causing them to lose a life every time they guess
 		printf("\n\nLives: %d \n\n", lives);
 		
+		printf("Previous Guesses: ");
 		for(int index = 0; index < 26; ++index){
 			if(isalpha(previousGuesses[index])){
 				printf("%c ", previousGuesses[index]);
