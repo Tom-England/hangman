@@ -25,7 +25,7 @@ int main(){
 	// Seed the random number generator with current time
 	srand(time(0));	
 	
-	int lives = 5;
+	int lives = 10;
 	char guess;
 	char previousGuesses[26];
 	int guessIndex = 0;
@@ -36,12 +36,43 @@ int main(){
 	}
 
 	// Declare words
-	#define WORD_COUNT 3
+	#define WORD_COUNT 34
 	#define MAX_STRING_LENGTH 20
 	const char words[WORD_COUNT][MAX_STRING_LENGTH] = 
 	{"test",
 	 "word",
-	 "microphone"
+	 "microphone",
+	 "abruptly",
+	 "azure",
+	 "bandwagon",
+	 "bayou",
+	 "bikini",
+	 "blizzard",
+	 "caliph",
+	 "equip",
+	 "fixable",
+	 "flapjack",
+	 "glyph",
+	 "haphazard",
+	 "injury",
+	 "jazz",
+	 "khaki",
+	 "kiwi",
+	 "luxury",
+	 "nymph",
+	 "oxygen",
+	 "pneumonia",
+	 "quartz",
+	 "lucky",
+	 "matrix",
+	 "microwave",
+	 "psyche",
+	 "rhythm",
+	 "sphinx",
+	 "topaz",
+	 "witchcraft",
+	 "whisky",
+	 "voyeur"
 	};	
 
 	// Select word to guess
@@ -98,6 +129,8 @@ int main(){
 			break;
 		}
 	}
+	
+	printf("\n\n\n\nYou Lost, out of lives!\n\n\n\n");
 
 	return 0;
 }
