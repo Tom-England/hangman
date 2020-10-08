@@ -17,6 +17,8 @@ int main(){
 	int lives = 5;
 	char guess;
 	char previousGuesses[26];
+	int guessIndex = 0;
+	int correctGuesses = 0;
 
 	// Declare words
 	int wordCount = 2;
@@ -28,15 +30,29 @@ int main(){
 	int selectedWordIndex = rand() % wordCount;
 	printf("Selected Word: %s \n", words[selectedWordIndex]);
 	
+	
+	// Main Logic Loop
 	while (lives > 0){
-		printf("Lives: %d \n", lives);
+		// There are extra getchars following each input, these prevent the newline from the user
+		// from triggering the input again causing them to lose a life every time they guess
+		printf("\n\nLives: %d \n\n", lives);
 		printf("Enter Guess: ");
-		scanf("%c", &guess);
+		guess = getchar();
+		getchar();
+		while (inArray(previousGuesses, guess)){
+			printf("\nGuess Again: ");
+			guess = getchar();	
+			getchar();
+		}
+		previousGuesses[guessIndex] = guess;
+		guessIndex++;
 
 		if (inArray(words[selectedWordIndex], guess)) {
 			printf("Guess is in word \n");
+			correctGuesses++;
+		} else {
+			lives--;
 		}
-		lives--;
 	}
 
 	return 0;
