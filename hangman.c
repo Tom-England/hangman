@@ -30,6 +30,10 @@ int main(){
 	int guessIndex = 0;
 	int correctGuesses = 0;
 
+	for (int i = 0; i < sizeof(previousGuesses)/sizeof(previousGuesses[0]); ++i){
+		previousGuesses[i] = ' ';
+	}
+
 	// Declare words
 	int wordCount = 2;
 	const char *words[wordCount];
@@ -46,7 +50,14 @@ int main(){
 		// There are extra getchars following each input, these prevent the newline from the user
 		// from triggering the input again causing them to lose a life every time they guess
 		printf("\n\nLives: %d \n\n", lives);
-		printf("Enter Guess: ");
+		
+		for(int index = 0; index < 26; ++index){
+			if(isalpha(previousGuesses[index])){
+				printf("%c ", previousGuesses[index]);
+			}
+		}
+		
+		printf("\nEnter Guess: ");
 		guess = getchar();
 		getchar();
 		while (inArray(previousGuesses, guess)){
